@@ -1,0 +1,6 @@
+.vimrc
+*.pyc
+.python-version
+.mypy_cache/*
+cache/*
+*.egg-info/*
