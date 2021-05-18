@@ -88,6 +88,7 @@ class App:
         Gtk.main()
         self.bar.hide()
         self.crt_effect.run()
+        self.lock()
         sys.exit(0)
 
     @property
