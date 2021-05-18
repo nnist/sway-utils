@@ -4,14 +4,13 @@ import time
 
 import gi
 from rofi import Rofi
-
 from sway_utils.effects.crt import CRTEffect
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
 gi.require_version("GtkLayerShell", "0.1")
 
-from gi.repository import Gdk, GLib, Gtk, GtkLayerShell
+from gi.repository import Gdk, GLib, Gtk, GtkLayerShell  # noqa:E402
 
 
 def sanitize_string(string):
