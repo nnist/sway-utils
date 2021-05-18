@@ -5,7 +5,7 @@ import time
 import gi
 from rofi import Rofi
 
-from effects import CRTEffect
+from sway_utils.effects.crt import CRTEffect
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
@@ -115,9 +115,3 @@ class App:
 
     def lock(self):
         subprocess.run(["swaylock", "-f", "-c", "000000"])
-
-
-task = sanitize_string(_input("What do you intend to do?", []))
-mins = int(_input("For how many minutes?", ["25", "10", "5", "2"])) * 60
-mins = 1
-App(task, mins).run()
