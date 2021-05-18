@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import time
+from typing import Union
 
 import gi
 from rofi import Rofi
@@ -36,7 +37,7 @@ def _input(msg, options):
 
 class App:
     screen_width = 2560
-    start_time = 0
+    start_time: Union[float, int] = 0
     duration = 10
     task = None
 
