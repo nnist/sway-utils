@@ -60,7 +60,6 @@ class CRTEffect:
         self.progress -= self.speed
         self.render()
         if self.progress <= 0:
-            self.stop()
             Gtk.main_quit()
             return False
 
