@@ -92,6 +92,9 @@ class App:
         self.lock()
         sys.exit(0)
 
+    def gtk_quit(self):
+        Gtk.main_quit()
+
     @property
     def progress(self):
         progress = (time.time() - self.start_time) / self.duration * 100
@@ -107,7 +110,7 @@ class App:
             self._update_bar()
             return True
         else:
-            Gtk.main_quit()
+            self.gtk_quit()
             return False
 
     def _update_bar(self):
