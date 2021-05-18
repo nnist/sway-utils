@@ -1,4 +1,8 @@
+#!/bin/python3
+
 import math
+import subprocess
+import sys
 
 import gi
 
@@ -98,3 +102,10 @@ class CRTEffect:
         self.top_shutter.destroy()
         self.bottom_shutter.destroy()
         self.flash_shutter.destroy()
+
+
+if __name__ == "__main__":
+    effect = CRTEffect(2560, 1080)
+    effect.run()
+    if "--lock" in sys.argv:
+        subprocess.run(["swaylock", "-f", "-c", "000000"])
