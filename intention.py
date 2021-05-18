@@ -1,3 +1,5 @@
+#!/bin/python3
+
 from sway_utils.intention.app import App, sanitize_string, _input
 
 
