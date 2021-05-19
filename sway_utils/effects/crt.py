@@ -21,7 +21,7 @@ class CRTEffect:
     def _create_window(self, anchor, color):
         window = Gtk.Window()
         GtkLayerShell.init_for_window(window)
-        GtkLayerShell.auto_exclusive_zone_enable(window)
+        GtkLayerShell.set_exclusive_zone(window, -1)
         GtkLayerShell.set_margin(window, GtkLayerShell.Edge.TOP, 0)
         GtkLayerShell.set_margin(window, GtkLayerShell.Edge.BOTTOM, 0)
         GtkLayerShell.set_anchor(window, anchor, True)

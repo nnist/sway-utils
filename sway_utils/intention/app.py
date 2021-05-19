@@ -48,8 +48,7 @@ class App:
 
         self.bar = Gtk.Window()
         GtkLayerShell.init_for_window(self.bar)
-        GtkLayerShell.auto_exclusive_zone_enable(self.bar)
-        GtkLayerShell.set_margin(self.bar, GtkLayerShell.Edge.TOP, 0)
+        GtkLayerShell.set_exclusive_zone(self.bar, -1)
         GtkLayerShell.set_margin(self.bar, GtkLayerShell.Edge.BOTTOM, 0)
         GtkLayerShell.set_anchor(self.bar, GtkLayerShell.Edge.BOTTOM, True)
         GtkLayerShell.set_layer(self.bar, GtkLayerShell.Layer.OVERLAY)
@@ -70,8 +69,7 @@ class App:
         label_overlay.add(label)
 
         GtkLayerShell.init_for_window(label_overlay)
-        GtkLayerShell.auto_exclusive_zone_enable(label_overlay)
-        GtkLayerShell.set_margin(label_overlay, GtkLayerShell.Edge.TOP, 0)
+        GtkLayerShell.set_exclusive_zone(label_overlay, -1)
         GtkLayerShell.set_margin(label_overlay, GtkLayerShell.Edge.BOTTOM, 3)
         GtkLayerShell.set_anchor(label_overlay, GtkLayerShell.Edge.BOTTOM, True)
 
