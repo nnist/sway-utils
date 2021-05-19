@@ -80,12 +80,14 @@ class App:
         label_overlay.set_accept_focus(False)
         label_overlay.show_all()
         label_overlay.connect("destroy", Gtk.main_quit)
+        self.label_overlay = label_overlay
 
     def run(self):
         GLib.timeout_add(100, self._tick)
         self.start_time = time.time()
         Gtk.main()
         self.bar.hide()
+        self.label_overlay.hide()
         self.crt_effect.run()
         self.lock()
         sys.exit(0)
