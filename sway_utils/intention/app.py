@@ -1,3 +1,5 @@
+import datetime
+import os
 import subprocess
 import sys
 import time
@@ -86,6 +88,7 @@ class App:
         GLib.timeout_add(100, self._tick)
         self.start_time = time.time()
         Gtk.main()
+        self.update_log()
         self.bar.hide()
         self.label_overlay.hide()
         self.crt_effect.run()
@@ -94,6 +97,35 @@ class App:
 
     def gtk_quit(self):
         Gtk.main_quit()
+
+    def update_log(self):
+        directory = os.path.expanduser("~") + "/.intention"
+        if not os.path.exists(directory):
+            os.mkdir(directory)
+
+        filename = f"{directory}/log.txt"
+        if not os.path.exists(filename):
+            os.mknod(filename)
+
+        today = datetime.datetime.today().strftime("%a %d %b %Y")
+        start_time = datetime.datetime.fromtimestamp(self.start_time).strftime("%H:%M")
+        end_time = datetime.datetime.now().strftime("%H:%M")
+        log_entry = [f"{start_time}-{end_time} - {self.task}"]
+
+        with open(filename, mode="r+", encoding="utf-8") as f:
+            lines = f.readlines()
+            if lines and lines[0].strip() == today:
+                # Heading for today already exists
+                f.seek(len(today) + 1)
+                lines = lines[1:]
+            else:
+                # Add new heading for today
+                log_entry.insert(0, today)
+                f.seek(0)
+                log_entry.append("")
+
+            f.writelines("\n".join(log_entry))
+            f.writelines(["\n"] + lines)
 
     @property
     def progress(self):
