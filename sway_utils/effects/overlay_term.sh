@@ -1,6 +1,6 @@
 alacritty \
     --option font.size=24 \
-    window.dimensions.columns=20 \
+    window.dimensions.columns=40 \
     window.dimensions.lines=7 \
     colors.cursor.cursor=\"CellBackground\" \
     colors.cursor.text=\"CellBackground\" \
