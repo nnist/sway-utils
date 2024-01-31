@@ -15,7 +15,7 @@ from gi.repository import Gdk, GLib, Gtk, GtkLayerShell  # noqa:E401
 
 class CRTEffect:
     progress = 0
-    speed = 0.2
+    speed = 0.6
     tick_rate = 1
 
     def _create_window(self, anchor, color):
