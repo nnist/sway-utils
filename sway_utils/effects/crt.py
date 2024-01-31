@@ -105,7 +105,7 @@ class CRTEffect:
 
 
 if __name__ == "__main__":
-    effect = CRTEffect(2560, 1080)
+    effect = CRTEffect(2560, 1600)
     effect.run()
     if "--lock" in sys.argv:
         subprocess.run(["swaylock", "-f", "-c", "000000"])
